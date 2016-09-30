@@ -36,7 +36,7 @@
 using namespace android;
 
 // Periodic chores intervals in seconds
-#define DEFAULT_PERIODIC_CHORES_INTERVAL_FAST (60 * 1)
+#define DEFAULT_PERIODIC_CHORES_INTERVAL_FAST (60 * 10)
 #define DEFAULT_PERIODIC_CHORES_INTERVAL_SLOW (60 * 10)
 
 static struct healthd_config healthd_config = {
@@ -358,6 +358,9 @@ int main(int argc, char **argv) {
         KLOG_ERROR("Initialization failed, exiting\n");
         exit(2);
     }
+
+    periodic_chores();
+    healthd_mode_ops->heartbeat();
 
     healthd_mainloop();
     KLOG_ERROR("Main loop terminated, exiting\n");

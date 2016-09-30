@@ -532,6 +532,7 @@ on boot
     chown system system /sys/class/leds/button-backlight/brightness
     chown system system /sys/class/leds/jogball-backlight/brightness
     chown system system /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/red/blink
     chown system system /sys/class/leds/green/brightness
     chown system system /sys/class/leds/blue/brightness
     chown system system /sys/class/leds/red/device/grpfreq
@@ -579,6 +580,7 @@ on property:vold.decrypt=trigger_restart_min_framework
     # A/B update verifier that marks a successful boot.
     exec - root -- /system/bin/update_verifier trigger_restart_min_framework
     class_start main
+    start time_daemon
 
 on property:vold.decrypt=trigger_restart_framework
     # A/B update verifier that marks a successful boot.
