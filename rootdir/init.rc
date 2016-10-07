@@ -10,8 +10,8 @@ import /init.${ro.hardware}.rc
 import /init.usb.configfs.rc
 import /init.${ro.zygote}.rc
 
-# Include QD's extra init file
-import /init.qd.rc
+# Include COS's extra init file
+import /init.cos.rc
 
 
 on early-init
